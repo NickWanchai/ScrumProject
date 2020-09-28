@@ -5,6 +5,7 @@ import com.example.demo.Model.ICrud;
 import com.example.demo.Model.Movie;
 
 import java.sql.*;
+import com.mysql.jdbc.Driver;
 import java.util.ArrayList;
 
 public class MovieRepository implements ICrud<Movie> {
@@ -41,7 +42,7 @@ public class MovieRepository implements ICrud<Movie> {
             Movie movie;
 
             while(rs.next()){
-                id = rs.getInt("autocamper_id");
+                id = rs.getInt("id");
                 name = rs.getString("movie_name");
                 year = rs.getInt("movie_year");
                 price = rs.getInt("movie_price");
