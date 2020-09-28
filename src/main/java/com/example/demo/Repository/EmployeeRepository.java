@@ -2,12 +2,15 @@ package com.example.demo.Repository;
 
 import com.example.demo.Model.ICrud;
 
+import java.sql.Connection;
+
 public class EmployeeRepository implements ICrud {
 
 
     @Override
     public void create(Object o) {
-
+        Connection connetion = DBConnectionManager.getConnection();
+        String SQL = "INSERT INTO ";
     }
 
     @Override

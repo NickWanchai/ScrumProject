@@ -1,9 +1,9 @@
 package com.example.demo.Model;
 
-public interface ICrud {
+public interface ICrud <T>{
 
-    void create(Object o);
+    void create(T o);
     Object read(int index);
-    void update(Object o, int index);
+    void update(T o, int index);
     void delete(int index);
 }
