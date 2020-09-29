@@ -27,7 +27,7 @@ public class MovieRepository implements ICrud<Movie> {
     }
 
     @Override
-    public Object read(int index) {
+    public ArrayList<Movie> read() {
         ArrayList<Movie> movies = new ArrayList<>();
 
         try{

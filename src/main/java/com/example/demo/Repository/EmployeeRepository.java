@@ -3,6 +3,7 @@ package com.example.demo.Repository;
 import com.example.demo.Model.ICrud;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 public class EmployeeRepository implements ICrud {
 
@@ -14,7 +15,7 @@ public class EmployeeRepository implements ICrud {
     }
 
     @Override
-    public Object read(int index) {
+    public ArrayList read() {
         return null;
     }
 

@@ -11,6 +11,6 @@ public class Main {
         MovieRepository mR = new MovieRepository();
 
         //mR.create(m);
-        System.out.println(mR.read(1));
+        System.out.println(mR.read());
     }
 }
