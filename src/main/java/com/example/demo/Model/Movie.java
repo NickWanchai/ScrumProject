@@ -24,6 +24,16 @@ public class Movie {
     public Movie(){}
 
     //Getter/Setter
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -47,6 +57,8 @@ public class Movie {
     public void setPrice(int price) {
         this.price = price;
     }
+
+
 
     @Override
     public String toString() {

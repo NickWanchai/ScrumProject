@@ -15,7 +15,9 @@ public class MovieRepository implements ICrud<Movie> {
         try{
         Connection connection = DBConnectionManager.getConnection();
         String SQL = "INSERT INTO movie VALUES(DEFAULT, ?,?,?)";
-        PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+        PreparedStatement ps = DBConnectionManager.getConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
         ps.setString(1,movie.getName());
         ps.setInt(2, movie.getYear());
         ps.setInt(3, movie.getPrice());

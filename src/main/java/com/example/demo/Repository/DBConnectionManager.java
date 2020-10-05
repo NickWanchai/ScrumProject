@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 @Repository
-public class DBConnectionManager {
+public class  DBConnectionManager {
 
     private static String user;
     private static String password;

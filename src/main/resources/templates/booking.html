@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Liste</title>
+</head>
+
+<body>
+
+<table class="tables" align="center">
+    <thead>
+    <tr>
+        <th>Movie Id</th>
+        <th>Date of Movie</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="bookings: ${booking}">
+
+        <td th:text="${bookings.getBookingId()}"></td>
+        <
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

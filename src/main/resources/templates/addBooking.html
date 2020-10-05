@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tilføj booking</title>
+</head>
+
+<body>
+
+<h2>Book here</h2>
+
+<form action="#" th:action="@{/addBooking}" th:object="${booking}" method="post">
+
+    <p>Movie number: <input type="number" th:field="*{movieId}"></p>
+    <p>Date of Booking: <input type="date" th:field="*{dateOfMovie}"required/></p>
+
+
+    <input type="submit" value="Tilføj" class="btn add2"/>
+
+</form>
+</body>
+</html>
