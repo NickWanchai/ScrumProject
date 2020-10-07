@@ -21,11 +21,12 @@ public class BookingRepository implements ICrud<Booking> {
             LocalDate date = booking.getDateOfMovie();
             Date SQLdate = Date.valueOf(date);
             Connection connection = DBConnectionManager.getConnection();
-            String SQL ="INSERT INTO movie_booking VALUES(DEFAULT,?,?)";
+            String SQL ="INSERT INTO movie_booking VALUES(DEFAULT,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
             ps.setInt(1,booking.getMovieId());
             ps.setDate(2, SQLdate);
+            ps.setString(3, booking.getSeat());
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -46,15 +47,20 @@ public class BookingRepository implements ICrud<Booking> {
 
             int bookingId;
             int movieId;
+            String seat;
             Booking booking;
+            Date _Date;
             LocalDate dateOfMovie;
 
 
 
             while(rs.next()){
                 bookingId = rs.getInt("booking_id");
-                //movieId = rs.getInt("id");
-                booking = new Booking(bookingId);
+                movieId = rs.getInt("movie_id");
+                _Date = rs.getDate("date_of_movie");
+                seat = rs.getString("seat");
+                dateOfMovie = _Date.toLocalDate();
+                booking = new Booking(bookingId, movieId, dateOfMovie, seat);
                 bookings.add(booking);
             }
         }catch(SQLException e){

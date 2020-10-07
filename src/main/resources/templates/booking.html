@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Booking Liste</title>
+    <link rel="stylesheet" href="Stylesheet.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-
+<div th:replace="header">...</div>
 <body>
 
 <table class="tables" align="center">
     <thead>
     <tr>
+
+        <th>Booking id</th>
         <th>Movie Id</th>
         <th>Date of Movie</th>
+        <th>Seat</th>
     </tr>
     </thead>
     <tbody>
@@ -19,7 +27,10 @@
     <tr th:each="bookings: ${booking}">
 
         <td th:text="${bookings.getBookingId()}"></td>
-        <
+        <td th:text="${bookings.getMovieId()}"></td>
+        <td th:text="${bookings.getDateOfMovie()}"></td>
+        <td th:text="${bookings.getSeat()}"></td>
+
     </tr>
     </tbody>
 </table>

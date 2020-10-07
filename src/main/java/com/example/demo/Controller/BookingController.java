@@ -16,8 +16,8 @@ import java.time.LocalDate;
 @Controller
 public class BookingController {
 
-   BookingRepository bookingRepository = new BookingRepository();
-   MovieRepository movieRepository = new MovieRepository();
+    BookingRepository bookingRepository = new BookingRepository();
+    MovieRepository movieRepository = new MovieRepository();
 
 
     @GetMapping("/booking")
@@ -37,13 +37,14 @@ public class BookingController {
     @PostMapping("/addBooking")
     public String addBooking(HttpServletRequest request){
         int movieId = Integer.parseInt(request.getParameter("movieId"));;
-        String date = request.getParameter("dateOfBooking");
+        String date = request.getParameter("dateOfMovie");
+        String seat = request.getParameter("seat");
         LocalDate dateOfMovie = convertDate(date);
-        Booking booking = new Booking(movieId, dateOfMovie);
+        Booking booking = new Booking(movieId, dateOfMovie, seat);
 
         bookingRepository.create(booking);
 
-        return "redirect:/Bookings";
+        return "redirect:/booking";
     }
 
     public LocalDate convertDate(String date){

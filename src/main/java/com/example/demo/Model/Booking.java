@@ -9,26 +9,39 @@ public class Booking {
     private int movieId;
     private LocalDate dateOfMovie;
 
+    public String getSeat() {
+        return seat;
+    }
+
+    public void setSeat(String seat) {
+        this.seat = seat;
+    }
+
+    private String seat;
+
 
     public Booking(int bookingId) {
         this.bookingId = bookingId;
     }
 
 
-    public Booking(int movieId, LocalDate dateOfMovie) {
+    public Booking(int movieId, LocalDate dateOfMovie, String seat) {
         this.movieId = movieId;
         this.dateOfMovie = dateOfMovie;
+        this.seat = seat;
     }
 
-    public Booking(int bookingId, int movieId) {
+    public Booking(int bookingId, int movieId, String seat) {
         this.bookingId = bookingId;
         this.movieId = movieId;
+        this.seat = seat;
     }
 
-    public Booking(int bookingId, int movieId, LocalDate dateOfMovie) {
+    public Booking(int bookingId, int movieId, LocalDate dateOfMovie, String seat) {
         this.bookingId = bookingId;
         this.movieId = movieId;
         this.dateOfMovie = dateOfMovie;
+        this.seat = seat;
     }
 
     public Booking() {

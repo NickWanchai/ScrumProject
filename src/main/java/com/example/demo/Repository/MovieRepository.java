@@ -13,15 +13,15 @@ public class MovieRepository implements ICrud<Movie> {
     @Override
     public void create(Movie movie) {
         try{
-        Connection connection = DBConnectionManager.getConnection();
-        String SQL = "INSERT INTO movie VALUES(DEFAULT, ?,?,?)";
+            Connection connection = DBConnectionManager.getConnection();
+            String SQL = "INSERT INTO movie VALUES(DEFAULT, ?,?,?)";
 
-        PreparedStatement ps = DBConnectionManager.getConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = DBConnectionManager.getConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-        ps.setString(1,movie.getName());
-        ps.setInt(2, movie.getYear());
-        ps.setInt(3, movie.getPrice());
-        ps.executeUpdate();
+            ps.setString(1,movie.getName());
+            ps.setInt(2, movie.getYear());
+            ps.setInt(3, movie.getPrice());
+            ps.executeUpdate();
         }
         catch (SQLException e){
             e.printStackTrace();
