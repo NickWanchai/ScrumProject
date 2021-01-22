@@ -15,7 +15,9 @@ public class DBConnectionManager {
 
     private static String user = "smiler";
     private static String password = "smiler1234";
-    private static String url = "kinodb.cjmxg4bu2fvq.us-east-1.rds.amazonaws.com";
+    private static String url = "jdbc:mysql://kinodb.cjmxg4bu2fvq.us-east-1.rds.amazonaws.com:3306/scrumproject?serverTimezone=UTC";
+
+
 
 
     private static Connection connection = null;
