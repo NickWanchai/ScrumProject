@@ -8,7 +8,8 @@ public class Employee {
 
     //Methods
 
-    public Employee(){}
+    public Employee() {
+    }
 
     public Employee(String name, int id) {
         this.name = name;

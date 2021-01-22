@@ -21,7 +21,6 @@
     </thead>
 
     <tbody>
-
     <tr th:each="movie: ${movies}">
         <td th:text="${movie.getId()}"></td>
         <td th:text="${movie.getName()}"></td>
@@ -39,7 +38,7 @@
 <form action="#" th:action="@{/addBooking}" th:object="${booking}" method="post">
 
     <p>Movie number: <input type="number" th:field="*{movieId}"></p>
-    <p>Date of Booking: <input type="date" th:field="*{dateOfMovie}"required/></p>
+    <p>Date of Booking: <input type="date" th:field="*{dateOfMovie}" required/></p>
     <p>Seat number: <input type="text" th:field="*{seat}"></p>
 
 

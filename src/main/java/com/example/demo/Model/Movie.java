@@ -21,7 +21,8 @@ public class Movie {
         this.price = price;
     }
 
-    public Movie(){}
+    public Movie() {
+    }
 
     //Getter/Setter
 
@@ -57,7 +58,6 @@ public class Movie {
     public void setPrice(int price) {
         this.price = price;
     }
-
 
 
     @Override

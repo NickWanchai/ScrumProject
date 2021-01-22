@@ -5,25 +5,26 @@ import com.example.demo.Model.ICrud;
 import com.example.demo.Model.Movie;
 
 import java.sql.*;
+
 import com.mysql.jdbc.Driver;
+
 import java.util.ArrayList;
 
 public class MovieRepository implements ICrud<Movie> {
 
     @Override
     public void create(Movie movie) {
-        try{
+        try {
             Connection connection = DBConnectionManager.getConnection();
             String SQL = "INSERT INTO movie VALUES(DEFAULT, ?,?,?)";
 
             PreparedStatement ps = DBConnectionManager.getConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-            ps.setString(1,movie.getName());
+            ps.setString(1, movie.getName());
             ps.setInt(2, movie.getYear());
             ps.setInt(3, movie.getPrice());
             ps.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -32,7 +33,7 @@ public class MovieRepository implements ICrud<Movie> {
     public ArrayList<Movie> read() {
         ArrayList<Movie> movies = new ArrayList<>();
 
-        try{
+        try {
             Connection connection = DBConnectionManager.getConnection();
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM movie";
@@ -43,7 +44,7 @@ public class MovieRepository implements ICrud<Movie> {
             int price;
             Movie movie;
 
-            while(rs.next()){
+            while (rs.next()) {
                 id = rs.getInt("id");
                 name = rs.getString("movie_name");
                 year = rs.getInt("movie_year");
@@ -51,7 +52,7 @@ public class MovieRepository implements ICrud<Movie> {
                 movie = new Movie(id, name, year, price);
                 movies.add(movie);
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return movies;
@@ -66,14 +67,14 @@ public class MovieRepository implements ICrud<Movie> {
 
     @Override
     public void delete(int index) {
-        try{
+        try {
             Connection connection = DBConnectionManager.getConnection();
             String sql = "DELETE FROM movie WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,index);
+            preparedStatement.setInt(1, index);
             preparedStatement.executeUpdate();
 
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

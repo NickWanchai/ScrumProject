@@ -16,25 +16,25 @@ public class MovieController {
     private MovieRepository mRepo = new MovieRepository();
 
     @GetMapping("/movies")
-    public String movies(Model model){
+    public String movies(Model model) {
         model.addAttribute("movies", mRepo.read());
         return "movies";
     }
 
     @GetMapping("/addMovie")
-    public String addMovie(Model model){
+    public String addMovie(Model model) {
         model.addAttribute("movie", new Movie());
         return "addMovie";
     }
 
     @PostMapping("/addMovie")
-    public String addMovie(HttpServletRequest request){
+    public String addMovie(HttpServletRequest request) {
         String name = request.getParameter("name");
         int year = Integer.parseInt(request.getParameter("year"));
-        int price = Integer.parseInt(request.getParameter("price"));;
+        int price = Integer.parseInt(request.getParameter("price"));
+        ;
         Movie movie = new Movie(name, year, price);
         mRepo.create(movie);
-
 
 
         return "redirect:/movies";

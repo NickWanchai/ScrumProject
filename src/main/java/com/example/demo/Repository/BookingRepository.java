@@ -17,14 +17,14 @@ public class BookingRepository implements ICrud<Booking> {
     @Override
     public void create(Booking booking) {
 
-        try{
+        try {
             LocalDate date = booking.getDateOfMovie();
             Date SQLdate = Date.valueOf(date);
             Connection connection = DBConnectionManager.getConnection();
-            String SQL ="INSERT INTO movie_booking VALUES(DEFAULT,?,?,?)";
+            String SQL = "INSERT INTO movie_booking VALUES(DEFAULT,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-            ps.setInt(1,booking.getMovieId());
+            ps.setInt(1, booking.getMovieId());
             ps.setDate(2, SQLdate);
             ps.setString(3, booking.getSeat());
             ps.executeUpdate();
@@ -39,7 +39,7 @@ public class BookingRepository implements ICrud<Booking> {
     public ArrayList read() {
         ArrayList<Booking> bookings = new ArrayList<>();
 
-        try{
+        try {
             Connection connection = DBConnectionManager.getConnection();
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM movie_booking";
@@ -53,8 +53,7 @@ public class BookingRepository implements ICrud<Booking> {
             LocalDate dateOfMovie;
 
 
-
-            while(rs.next()){
+            while (rs.next()) {
                 bookingId = rs.getInt("booking_id");
                 movieId = rs.getInt("movie_id");
                 _Date = rs.getDate("date_of_movie");
@@ -63,7 +62,7 @@ public class BookingRepository implements ICrud<Booking> {
                 booking = new Booking(bookingId, movieId, dateOfMovie, seat);
                 bookings.add(booking);
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return bookings;
@@ -74,7 +73,6 @@ public class BookingRepository implements ICrud<Booking> {
     public void update(Booking o, int index) {
 
     }
-
 
 
     @Override

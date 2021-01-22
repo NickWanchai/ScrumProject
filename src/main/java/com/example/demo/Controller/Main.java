@@ -6,7 +6,7 @@ import com.example.demo.Repository.MovieRepository;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Movie m = new Movie("Batman", 2000, 100);
         MovieRepository mR = new MovieRepository();
 

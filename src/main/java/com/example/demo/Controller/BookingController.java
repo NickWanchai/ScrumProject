@@ -21,13 +21,13 @@ public class BookingController {
 
 
     @GetMapping("/booking")
-    public String booking(Model model){
+    public String booking(Model model) {
         model.addAttribute("booking", bookingRepository.read());
         return "booking";
     }
 
     @GetMapping("/addBooking")
-    public String addBooking(Model model){
+    public String addBooking(Model model) {
         model.addAttribute("booking", new Booking());
         model.addAttribute("movies", movieRepository.read());
 
@@ -35,8 +35,9 @@ public class BookingController {
     }
 
     @PostMapping("/addBooking")
-    public String addBooking(HttpServletRequest request){
-        int movieId = Integer.parseInt(request.getParameter("movieId"));;
+    public String addBooking(HttpServletRequest request) {
+        int movieId = Integer.parseInt(request.getParameter("movieId"));
+        ;
         String date = request.getParameter("dateOfMovie");
         String seat = request.getParameter("seat");
         LocalDate dateOfMovie = convertDate(date);
@@ -47,7 +48,7 @@ public class BookingController {
         return "redirect:/booking";
     }
 
-    public LocalDate convertDate(String date){
+    public LocalDate convertDate(String date) {
 
         String split[] = date.split("-");
         int year = Integer.parseInt(split[0]);
