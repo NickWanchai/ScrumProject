@@ -13,9 +13,11 @@ import java.util.Properties;
 @Repository
 public class DBConnectionManager {
 
-    private static String user = "scrumproject";
-    private static String password = "Pw6G0o-IiO9?";
-    private static String url = "jdbc:mysql://scrumproject@den1.mysql1.gear.host:3306/scrumproject?serverTimezone=UTC";
+    private static String user = "smiler";
+    private static String password = "smiler1234";
+    private static String url = "kinodb.cjmxg4bu2fvq.us-east-1.rds.amazonaws.com";
+
+
     private static Connection connection = null;
 
 
