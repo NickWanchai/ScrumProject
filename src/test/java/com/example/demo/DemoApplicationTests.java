@@ -15,7 +15,7 @@ class DemoApplicationTests {
 
     @Test
     void calculate(){
-        assertEquals(5, 2+4+1);
+        assertEquals(5, 2+2+1);
     }
 
 }
